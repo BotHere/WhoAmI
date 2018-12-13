@@ -25,6 +25,7 @@ jobs:
               git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
               git rm -rf .
               cd ..
+              ls
 
               cp -a build/. out/.
 
