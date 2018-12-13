@@ -1,6 +1,9 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/WhoAmI
+    docker:
+      - image: futtetennista/hakyll:latest
     branches:
       ignore:
         - gh-pages
