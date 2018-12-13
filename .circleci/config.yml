@@ -4,16 +4,11 @@ jobs:
     branches:
       ignore:
         - gh-pages
-    docker:
-      - image: circleci/node:8
     environment:
       - SOURCE_BRANCH: master
       - TARGET_BRANCH: gh-pages
     steps:
       - checkout
-      - run:
-          name: Install dependencies
-          command: npm install
       - deploy:
           name: Deploy
           command: |
@@ -27,8 +22,6 @@ jobs:
               git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
               git rm -rf .
               cd ..
-
-              npm run build
 
               cp -a build/. out/.
 
